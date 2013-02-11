@@ -9,5 +9,4 @@ var server = http.createServer( function( req, res ) {
   }
 
   res.end( from + "\n" );
-// }).listen( 3013, '206.125.173.186' );
 }).listen( 3013 );
