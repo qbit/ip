@@ -1,11 +1,9 @@
 var http = require( 'http' ); 
 var server = http.createServer( function( req, res ) {
-  var from = '';
+  var from = req.connection.remoteAddress || req.headers['x-forwarded-for'] || 'unknown';
 
   if ( req.connection.remoteAddress === '127.0.0.1' || req.connection.remoteAddress === 'localhost' ) { 
     from = req.headers['x-forwarded-for'];
-  } else {
-    from = req.connection.remoteAddress;
   }
 
   res.end( from + "\n" );
